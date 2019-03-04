@@ -3,7 +3,7 @@ const routes = require('./routing')
 const sql = require('./modules/db')
 
 const server = hapi.server({
-  port: 3001,
+  port: 3000,
   host: 'localhost',
 })
 
