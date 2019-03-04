@@ -1,5 +1,5 @@
 const hapi = require('hapi')
-const routes = require('./routing')
+const routes = require('./routes/index')
 const sql = require('./modules/db')
 
 const server = hapi.server({
