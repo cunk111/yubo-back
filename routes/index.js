@@ -25,7 +25,7 @@ const plugin = {
   name: 'test',
   version: '1.0.0',
   register: async (server) => {
-    const routes = [].concat(home, user, media, message)
+    const routes = [...home, ...user, ...media, ...message]
     routes.map(route => server.route(route))
   },
 }
