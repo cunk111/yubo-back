@@ -8,6 +8,7 @@
   "dependencies": {
     "hapi": "^17.5.4",
     "joi": "^13.6.0",
+    "lodash": "^4.17.11",
     "sqlite": "^3.0.2"
   },
   "devDependencies": {
