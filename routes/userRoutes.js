@@ -28,7 +28,7 @@ module.exports = [
   },
   {
     method: 'GET',
-    path: '/users/{qty}/{offset}',
+    path: '/users/{qty}/{offset?}',
     config: { cors: { origin: ['*'] } },
     handler: (request, h) => getUserList(h, request.params.qty, request.params.offset),
   },

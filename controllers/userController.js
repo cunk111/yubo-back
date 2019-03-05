@@ -40,7 +40,7 @@ const userController = {
     }
   },
 
-  async getUserList(req, qty, page) {
+  async getUserList(req, qty, page = 1) {
     try {
       const db = _db.getDb()
       const offset = (page - 1) * qty
