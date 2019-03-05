@@ -1,15 +1,18 @@
 import {
   getUsers,
   getUserById,
+  getUserByName,
   getUserList,
   setSoftDelete,
 } from '../controllers/userController'
 
 module.exports = [
   {
-    method: 'GET',
+    method: ['GET', 'PUT'],
     path: '/users',
-    handler: (request, h) => getUsers(h),
+    config: { cors: { origin: ['*'] } },
+    handler: (request, h) => (request.method === 'get' ?
+      getUsers(h) : setSoftDelete(h, request.payload)),
   },
   {
     method: 'GET',
@@ -19,14 +22,14 @@ module.exports = [
   },
   {
     method: 'GET',
+    path: '/userbla/{name}',
+    config: { cors: { origin: ['*'] } },
+    handler: (request, h) => getUserByName(h, request.params.name),
+  },
+  {
+    method: 'GET',
     path: '/users/{qty}/{offset}',
     config: { cors: { origin: ['*'] } },
     handler: (request, h) => getUserList(h, request.params.qty, request.params.offset),
-  },
-  {
-    method: 'PUT',
-    path: '/updateUser',
-    config: { cors: { origin: ['*'] } },
-    handler: (request, h) => setSoftDelete(h, request.payload),
   },
 ]
