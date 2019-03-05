@@ -40,9 +40,10 @@ const userController = {
     }
   },
 
-  async getUserList(req, qty, offset) {
+  async getUserList(req, qty, page) {
     try {
       const db = _db.getDb()
+      const offset = (page - 1) * qty
       const sql = `SELECT * FROM users LIMIT ${qty} OFFSET ${offset}`
       const rows = await db.all(sql, [])
 
