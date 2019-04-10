@@ -1,21 +1,21 @@
-const hapi = require('hapi')
-const routes = require('./routes/index')
-const sql = require('./modules/db')
+const hapi = require('hapi');
+const routes = require('./routes/index');
+const sql = require('./modules/db');
 
 const server = hapi.server({
   port: 3000,
   host: 'localhost',
-})
+});
 
 const init = async () => {
-  await server.start()
-  await server.register(routes)
-  sql.connectToDB()
-}
+  await server.start();
+  await server.register(routes);
+  sql.connectToDB();
+};
 
 process.on('unhandledRejection', (err) => {
-  console.log(err)
-  process.exit(1)
-})
+  console.log(err);
+  process.exit(1);
+});
 
-init()
+init();

@@ -14,20 +14,20 @@ const home = {
     - GET /messages: will return all existing messages \
     - GET /user/{userId}/messages : will return all messages of a user \
     - GET /media : will return all existing media \
-    - GET /user/{userId}/media : will return all media of a user'
+    - GET /user/{userId}/media : will return all media of a user';
 
-    return h.response(data).code(200)
+    return h.response(data).code(200);
   },
-}
+};
 
 
 const plugin = {
   name: 'test',
   version: '1.0.0',
   register: async (server) => {
-    const routes = [...home, ...user, ...media, ...message]
-    routes.map(route => server.route(route))
+    const routes = [...home, ...user, ...media, ...message];
+    routes.map(route => server.route(route));
   },
-}
+};
 
-module.exports = plugin
+module.exports = plugin;
