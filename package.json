@@ -15,6 +15,7 @@
     "@babel/cli": "^7.4.3",
     "@babel/core": "^7.4.3",
     "@babel/node": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-es2015": "^7.0.0-beta.53",
     "@babel/register": "^7.4.0",
@@ -30,10 +31,19 @@
   "scripts": {
     "dev:start": "babel-node ./server.js",
     "dev:watch": "nodemon --exec babel-node ./server.js",
-    "dev:test": "",
-    "prod:start": "node dist/server.js",
-    "prod:watch": "pm2 start dist/server.js -i max --name \"api\"",
-    "build": "webpack"
+    "dev:test": "mocha --recursive --full-trace",
+    "prod:start": "node build/bundle.js",
+    "prod:watch": "pm2 start build/bundle.js -i max --name \"api\"",
+    "build": "webpack",
+    "lint": "eslint --ignore-pattern \"node_modules/*\" --ignore-pattern \"build/*\" --fix ."
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "engines": {
+    "node": ">=8.9.0"
   },
   "repository": {
     "type": "git",

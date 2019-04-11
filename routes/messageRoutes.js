@@ -1,17 +1,16 @@
-import {
-  getMessages,
-  getMessagesByUserId,
-} from '../controllers/messageController'
+import { getMessages, getMessagesByUserId } from '../controllers/messageController'
 
-module.exports = [
+const messageRoutes = [
   {
-    method: 'GET',
-    path: '/messages',
+    method : 'GET',
+    path   : '/messages',
     handler: (request, h) => getMessages(h),
   },
   {
-    method: 'GET',
-    path: '/user/{userId}/messages',
+    method : 'GET',
+    path   : '/user/{userId}/messages',
     handler: (request, h) => getMessagesByUserId(h, request.params.userId),
-  },
+  }
 ]
+
+export default messageRoutes

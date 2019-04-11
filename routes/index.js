@@ -1,33 +1,34 @@
-import user from './userRoutes'
 import media from './mediaRoutes'
 import message from './messageRoutes'
+import user from './userRoutes'
 
-const home = {
+const home = [
+  {
   method: 'GET',
   path: '/',
   handler: (request, h) => {
-    const data = 'Hey! Glad you made it here \
-    - GET /users : will return all existing users \
-    - GET /user/{userId} : will return a given user \
-    - GET /users/{qty}/{offset} : will return a paginated subset of users \
-    - PUT /updateUser : will update a user isDeleted field \
-    - GET /messages: will return all existing messages \
-    - GET /user/{userId}/messages : will return all messages of a user \
-    - GET /media : will return all existing media \
-    - GET /user/{userId}/media : will return all media of a user';
+    const data = 'Hey! Glad you made it here \n \
+    - GET /users : will return all existing users \n \
+    - GET /user/{userId} : will return a given user \n \
+    - GET /users/{qty}/{offset} : will return a paginated subset of users \n \
+    - PUT /updateUser : will update a user isDeleted field \n \
+    - GET /messages: will return all existing messages \n \
+    - GET /user/{userId}/messages : will return all messages of a user \n \
+    - GET /media : will return all existing media \n \
+    - GET /user/{userId}/media : will return all media of a user'
 
-    return h.response(data).code(200);
-  },
-};
+    return h.response(data).code(200)
+  }
+  } ]
 
 
 const plugin = {
   name: 'test',
   version: '1.0.0',
   register: async (server) => {
-    const routes = [...home, ...user, ...media, ...message];
-    routes.map(route => server.route(route));
-  },
-};
+    const routes = [ ...home, ...user, ...media, ...message ]
+    routes.map(route => server.route(route))
+  }
+}
 
-module.exports = plugin;
+export default plugin

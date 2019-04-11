@@ -1,17 +1,16 @@
-import {
-  getMedia,
-  getMediaByUserId,
-} from '../controllers/mediaController'
+import { getMedia, getMediaByUserId } from '../controllers/mediaController'
 
-module.exports = [
+const mediaRoutes = [
   {
-    method: 'GET',
-    path: '/media',
+    method : 'GET',
+    path   : '/media',
     handler: (request, h) => getMedia(h),
   },
   {
-    method: 'GET',
-    path: '/user/{userId}/media',
+    method : 'GET',
+    path   : '/user/{userId}/media',
     handler: (request, h) => getMediaByUserId(h, request.params.userId),
-  },
+  }
 ]
+
+export default mediaRoutes

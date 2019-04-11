@@ -1,14 +1,12 @@
 import sqlite from 'sqlite'
 
-let _db
+let db
 
-module.exports = {
-  async connectToDB() {
-    const db = await sqlite.open('./db.sqlite', { Promise })
-    _db = db
-    return _db
-  },
-  getDb() {
-    return _db
-  },
+export const connectToDB = async () => {
+  db = await sqlite.open('./db.sqlite', { Promise })
 }
+
+export const getDb = () => {
+  return db
+}
+

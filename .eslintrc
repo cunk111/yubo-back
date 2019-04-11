@@ -1,5 +1,10 @@
 {
-  "extends": ["eslint:recommended", "plugin:node/recommended"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:node/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
   "parser": "babel-eslint",
   "env": {
     "browser": true,
@@ -73,7 +78,8 @@
     "no-lone-blocks": 2, // disallow unnecessary nested blocks
     "no-loop-func": 2, // disallow creation of functions within loops
     "no-multi-spaces": 2, // disallow use of multiple spaces
-    "no-multi-str": 2, // disallow use of multiline strings
+    "no-multi-str": 0,
+    // disallow use of multiline strings
     "no-native-reassign": 2, // disallow reassignments of native objects
     "no-new": 2, // disallow use of new operator when not part of the assignment or comparison
     "no-new-func": 2, // disallow use of new operator for Function object
@@ -191,39 +197,17 @@
     "no-plusplus": [2, {"allowForLoopAfterthoughts": true}], // disallow use of unary operators, ++ and -- (off by default)
 
     //
-    // eslint-plugin-react
-    //
-    // React specific linting rules for ESLint
-    //
-    "react/display-name": 0, // Prevent missing displayName in a React component definition
-    "jsx-quotes": ["error", "prefer-single"], // Enforce quote style for JSX attributes
-    "react/jsx-no-undef": 2, // Disallow undeclared variables in JSX
-    "react/jsx-sort-props": 0, // Enforce props alphabetical sorting
-    "react/jsx-uses-react": 2, // Prevent React to be incorrectly marked as unused
-    "react/jsx-uses-vars": 2, // Prevent variables used in JSX to be incorrectly marked as unused
-    "react/no-did-mount-set-state": 2, // Prevent usage of setState in componentDidMount
-    "react/no-did-update-set-state": 2, // Prevent usage of setState in componentDidUpdate
-    "react/no-multi-comp": 0, // Prevent multiple component definition per file
-    "react/no-unknown-property": 2, // Prevent usage of unknown DOM property
-    "react/react-in-jsx-scope": 2, // Prevent missing React when using JSX
-    "react/self-closing-comp": 2, // Prevent extra closing tags for components without children
-    "react/jsx-wrap-multilines": 2, // Prevent missing parentheses around multilines JSX
-    "react/prop-types": 0, // Prevent missing props validation in a React component definition
-
-    //
     // CUSTOM
     //
     // Panopli Tweaks
     //
-    "react/prefer-stateless-function": 0, //Enforce stateless React Components to be written as a pure function
-    "react/jsx-filename-extension": 0, //Restrict file extensions that may contain JSX
-    "react/prefer-es6-class": 0, //Enforce ES5 or ES6 class for React Components
-    "import/no-extraneous-dependencies": 1, //Forbid the use of extraneous packages
-    "react/jsx-no-bind": 1, //Props should not use bind
-    "import/no-named-as-default": 1,
+    // "import/no-extraneous-dependencies": 1, //Forbid the use of extraneous packages
+    // "import/no-named-as-default": 1,
     "jsx-a11y/click-events-have-key-events": 0,
     "jsx-a11y/anchor-is-valid": 0,
     "jsx-a11y/no-static-element-interactions": 0,
-    "class-methods-use-this": 0
+    "class-methods-use-this": 0,
+    "node/no-unsupported-features/es-builtins": 0,
+    "node/no-unsupported-features/es-syntax": 0
   }
 }
